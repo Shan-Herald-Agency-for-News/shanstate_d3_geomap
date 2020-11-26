@@ -1,22 +1,51 @@
-import React from "react"
-import { Link } from "gatsby"
+import MapExplorer from "../components/mapexplorer"
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import { MAP_META } from "../constants"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-  </Layout>
-)
+import axios from "axios"
+import React, { useState, useCallback } from "react"
+import "../styles/styles.css"
+import { useEffectOnce, useLocalStorage, useFavicon } from "react-use"
 
-export default IndexPage
+function Home(props) {
+  // const [states, setStates] = useState([]);
+  const [delegate, setDelegate] = useState({})
+
+  const [fetched, setFetched] = useState(false)
+
+  useEffectOnce(() => {
+    getStates()
+  })
+
+  const getStates = async () => {
+    try {
+      const { data } = await axios.get(
+        `https://shannews.github.io/election2020-api/delegate.json`
+      )
+
+      setDelegate(data)
+      setFetched(true)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  return (
+    <React.Fragment>
+      <div className="home-right">
+        {fetched && (
+          <React.Fragment>
+            <MapExplorer
+              mapMeta={MAP_META.Shan}
+              states={"shan"}
+              townshipDelegate={delegate}
+              isCountryLoaded={true}
+            />
+          </React.Fragment>
+        )}
+      </div>
+    </React.Fragment>
+  )
+}
+
+export default React.memo(Home)

@@ -1,7 +1,7 @@
+import React, { useCallback, useEffect, useRef, useState } from "react"
 import { MAP_TYPES } from "../constants"
 
 import * as d3 from "d3"
-import React, { useCallback, useEffect, useRef, useState } from "react"
 import * as topojson from "topojson"
 
 const propertyFieldMap = {
@@ -20,6 +20,7 @@ function ChoroplethMap({
   const choroplethMap = useRef(null)
   const choroplethLegend = useRef(null)
   const [svgRenderCount, setSvgRenderCount] = useState(0)
+  const [selectTownShip, setSelectTownShip] = useState("")
 
   const ready = useCallback(
     geoData => {
@@ -105,7 +106,9 @@ function ChoroplethMap({
           if (onceTouchedRegion === d) onceTouchedRegion = null
           else onceTouchedRegion = d
         })
-        .on("click", handleClick)
+        .on("click", (d, i) => {
+          handleClick(i.properties[propertyField])
+        })
         .style("cursor", "pointer")
         .append("title")
         .text(function (d) {
@@ -141,8 +144,12 @@ function ChoroplethMap({
         }
       }
 
-      function handleClick(d, i) {
-        console.log(i)
+      const handleClick = name => {
+        try {
+          setSelectTownShip(name)
+        } catch (err) {
+          console.log("err", err)
+        }
       }
 
       function getPartyColor(p) {
@@ -233,7 +240,7 @@ function ChoroplethMap({
   }, [svgRenderCount, selectedRegion])
 
   return (
-    <div>
+    <div style={styles.container}>
       <div className="svg-parent fadeInUp" style={{ animationDelay: "2.5s" }}>
         <svg
           id="chart"
@@ -252,8 +259,18 @@ function ChoroplethMap({
           ref={choroplethLegend}
         ></svg>
       </div>
+      <div>
+        <h2>{selectTownShip}</h2>
+      </div>
     </div>
   )
+}
+
+const styles = {
+  container: {
+    display: "flex",
+    flexDirection: "column",
+  },
 }
 
 export default React.memo(ChoroplethMap)

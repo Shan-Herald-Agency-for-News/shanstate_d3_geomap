@@ -8,6 +8,7 @@ export const MAP_STATISTICS = {
   PER_MILLION: 1,
 }
 
+//* on production need to import maps folder to public folder
 export const MAPS_DIR = "/maps"
 
 export const MAP_META = {

@@ -1,11 +1,23 @@
+import React, { useState } from "react"
 import MapExplorer from "../components/mapexplorer"
 
-import { MAP_META } from "../constants"
-
 import axios from "axios"
-import React, { useState, useCallback } from "react"
 import "../styles/styles.css"
-import { useEffectOnce, useLocalStorage, useFavicon } from "react-use"
+import { useEffectOnce } from "react-use"
+
+import { MAP_TYPES } from "../constants"
+
+//* use in development
+const MAP_META = {
+  Shan: {
+    name: "Shan",
+    // geoDataFile: `${MAPS_DIR}/shan.json`,
+    geoDataFile: `../maps/shan_state_townships.json`,
+    mapType: MAP_TYPES.STATE,
+    // graphObjectName: 'shan',
+    graphObjectName: "myanmar_township",
+  },
+}
 
 function Home(props) {
   // const [states, setStates] = useState([]);

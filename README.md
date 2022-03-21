@@ -21,17 +21,17 @@ Open License
 
 <!-- ISSUE -->
 ## Issue
-Issue - [https://github.com/NoerNova/shanstate_geo_maps/issues](https://github.com/NoerNova/shanstate_geo_maps/issues)
+Issue - [https://github.com/Shan-Herald-Agency-for-News/shanstate_d3_geomap/issues](https://github.com/Shan-Herald-Agency-for-News/shanstate_d3_geomap/issues)
 
 <!-- PULL -->
 ## Pull Request
-Pull - [https://github.com/NoerNova/shanstate_geo_maps/pulls](https://github.com/NoerNova/shanstate_geo_maps/pulls)
+Pull - [https://github.com/Shan-Herald-Agency-for-News/shanstate_d3_geomap/pulls](https://github.com/Shan-Herald-Agency-for-News/shanstate_d3_geomap/pulls)
 
 <!-- CONTACT -->
 ## Contact
 
-[NorHsangPha](https://noernova.com) - noernova666@gmail.com
+[SHAN](https://shannews.org/contact) - creative@panglong.org
 
-Project Link: [https://github.com/NoerNova/shanstate_geo_maps](https://github.com/NoerNova/shanstate_geo_maps)
+Project Link: [https://github.com/Shan-Herald-Agency-for-News/shanstate_d3_geomap](https://github.com/Shan-Herald-Agency-for-News/shanstate_d3_geomap)
 
 <p align="right">(<a href="#top">back to top</a>)</p>

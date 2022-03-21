@@ -2,7 +2,7 @@ This is a geo, topology map for Shan state region
 
 ## Maps
 
-- [shan_state_townships.json](maps/shan_state_townships.json)
+- [shan_state_townships.json](https://github.com/Shan-Herald-Agency-for-News/shanstate_d3_geomap/blob/main/src/maps/shan_state_townships.json)
 
 ## Learn More
 
